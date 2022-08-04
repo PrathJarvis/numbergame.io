@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dom/css/style.css" />
+    <title>Document</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+body{
+    background-color: rgb(65, 11, 239);
+    font-family: 'poppins',sans-serif;
+}
+input[type=number]{
+    width: 200px;
+    padding: 7px;
+}
+#input-label{
+    color: rgb(198, 54, 22);
+    font-weight: 700;
+    font-size: 20px;
+}
+input[type=number]:focus{
+    outline: none;
+}
+input[type=number]::placeholder{
+    color: rgb(190, 193, 193);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#suggestion{
+    background-color: rgb(255, 98, 0);
+    padding: 5px;
+    color: #fff;
+}
+#box-title{
+    color: rgb(216, 59, 7);
+    margin: 20px;
+    font-size: 35px;
+}
+#sub_btn{
+    padding: 20px 50px;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    border-radius: 7px;
+    background-color: rgb(233, 99, 10);
+}
+#sub_btn:hover{
+    background-color: rgb(16, 119, 52);
+  }
+.box{
+    transition-duration: .5s;
+    padding: 10px;
+    width: 550px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: antiquewhite;
+}
+.cointaner{
+    display: flex;
+    justify-content: center;
+    margin-top: 180px;
+}
+  </style>
+  <body>
+    <div class="cointaner">
+      <div class="box">
+
+        <p id="num"></p>
+        <p id="box-title"><strong>Number Choosing Game</strong></p>
+        <label id="input-label" for="number">Enter : </label>
+        <input type="number" id="inputValue" placeholder="Enter Number Between 0 - 100" />
+        <br /><br />
+        <button id="sub_btn" onclick="game()">Submit</button>
+        <p id="suggestion"></p>
+      </div>
+    </div>
+    <!-- <script src="/dom/js/script.js"></script> -->
+    <script>
+      let ComputerValue = Math.floor(Math.random() * 100);
+function game() {
+  let UserValue = document.getElementById("inputValue").value;
+  if (UserValue == ComputerValue) {
+    document.getElementById("suggestion").innerHTML =
+      "Your Answer is Correct : " + ComputerValue;
+  }
+  if (UserValue < ComputerValue) {
+    document.getElementById("suggestion").innerHTML = "Lowest Number";
+  }
+  if (UserValue > ComputerValue) {
+    document.getElementById("suggestion").innerHTML = "Largest Number";
+  }
+}
+
+
+    </script>
+  </body>
+</html>
